@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/myTheme.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			function myFunction() {			
+				var script = document.createElement('script');
+				script.src = "greeter.js";
+				document.body.appendChild(script);
+			}
+			
+			function myFunction2() {			
+				var script = document.createElement('script');
+				script.src = "greeter2.js";
+				document.body.appendChild(script);
+			}
+		</script>
+		
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		
+		<style>
+
+  </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img style="border:none;  box-shadow: none; background: none;" src="images/logo.png" alt=""/>
+				</section>
+				
+				<section>
+					<h3 style="color:#4682B4">What do you know about Typescript?</h3>
+
+					<p class="fragment">TypeScript is just JavaScript!</p>
+					
+				</section>
+				<section>
+					<h3 style="color:#4682B4">Features of TypeScript</h3>
+					<ul> 
+						<li> TypeScript supports other JS libraries</li>
+						<li> JavaScript is TypeScript</li>
+						<li> TypeScript is portable.</li>
+					</ul>
+				</section>
+				<section>
+					<h3 style="color:#4682B4">TypeScript and ECMAScript</h3>
+						<img style= "margin-top: 100px; border:none;  box-shadow: none; background: none;" src="images/typescript_and_ecmascript.jpg" alt=""/>
+				</section>
+				<section>
+					<h3 style="color:#4682B4">Why Use TypeScript?</h3>
+						<ul> 
+						<li> Compilation</li>
+						<li> Strong Static Typing</li>
+						<li> Supports Object Oriented Programming</li>
+					</ul>
+					
+				</section>
+				<section>
+					<h3 style="color:#4682B4">Components of TypeScript</h3>
+					<div id="left">
+					<ul class="fragment"> 
+						<li> Language </li>
+						<br/>
+						<li> The TypeScript Compiler</li>
+						<br/>
+						<li> The TypeScript Language Service</li>
+					</div>
+					<div id="right" class="fragment">
+						<img style= "margin-top: 0; margin-right : 100px: 100px; border:none;  box-shadow: none; background: none;" src="images/typescript_components.jpg" alt=""/>
+					</div>
+					
+				</section>
+				<section>
+					<h3 style="color:#4682B4">Hello, world</h3>
+					<pre contenteditable"><code>tsc greeter.ts </code></pre>
+					<pre contenteditable"><code>//greeter.ts
+					
+class Greeter {
+    constructor(public greeting: string) { }
+    greet() {
+        return this.greeting;
+    }
+};
+
+var greeter = new Greeter("What's up");
+    
+alert(greeter.greet()); </code></pre>
+					<button onclick="myFunction()">GO!</button>
+				</section>
+				<section>
+					<h3 style="color:#4682B4">One more example</h3>
+					<pre contenteditable"><code>
+
+class Student {
+    fullName: string;
+    constructor(public firstName, public middleInitial, public lastName) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+}
+
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function greeter(person : Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+var user = new Student("Andrew", "A.", "User");
+alert(greeter(user));</code></pre>
+				<button onclick="myFunction2()">GO!</button>
+				</section>
+				<section>
+					<h3 style="color:#4682B4">Thank you for your attention</h3>
+					
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
